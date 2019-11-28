@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row">
+        <form #form='ngForm' (ngSubmit)="onSubmit(form)">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <input class="form-control mr-sm-2 p mt-4 search" type="text" placeholder="Search for a City" name="name" #name="ngModel" [(ngModel)]="cityname" required>
+                        <input class="form-control mr-sm-2 p mt-4 search" type="text" placeholder="Paese" name="name" #name="ngModel" [(ngModel)]="country" required maxLength="2">
+                    </div>
+                    <div class="row ml-2">
+                        <button type="submit" class="btn-grad  p mt-4" (click)="onSubmit($event)" [disabled]="!form.valid">Search</button>
+                        <button type="button" class="btn-grad p ml-4 mt-4" [disabled]="!form.valid" (click)="prova($event)" [hidden]="!showCard">Meteo Della settimana</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+    <div class="row" [hidden]="!showCard">
+        <div class="card" *ngFor="let item of cityFound.data">
+            <div class="card-body">
+                <h2 class="card-title">{{item.city_name}}</h2>
+                <p>{{item.temp}}</p>
+                <span style="text-align: center; font-size: 2rem;">{{item.weather.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row" [hidden]="!clicked">
+        <div class="card weekly" *ngFor="let item of weeklyFound.data">
+            <div class="card-body">
+                <h2 class="card-title">{{weeklyFound.city_name}}</h2>
+                <p>{{item.datetime | date:'d/M/y'}}</p>
+                <p>{{item.temp}}</p>
+                <span style="text-align: center; font-size: 1rem;">{{item.weather.description}}</span>
+            </div>
+        </div>
+    </div>
+</div>

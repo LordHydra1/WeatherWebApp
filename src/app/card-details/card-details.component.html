@@ -1,0 +1,108 @@
+<div class="container" *ngIf="isFetching">
+    <div class="row" *ngIf="!refresh">
+        <div class="card-body expand testimg" style="padding:0" [hidden]="!activated">
+            <div class="row">
+                <div class="text-center col-md-6">
+                    <p class="temp">
+                        {{risultato?.temp | number:'1.0-0'}}°
+                    </p>
+                    <div class="row ml-2">
+                        <div class="col-md-6">
+                            <span class="details">Velocità Vento</span>
+                            <p class="details" style="margin-left: 20px; font-size: 15px;">
+                                {{risultato?.rh | number:'1.0-0'}}
+                            </p>
+                        </div>
+                        <hr class="separetor">
+                        <div class="col-md-4">
+                            <span class="details">Umidità</span>
+                            <p class="details" style="font-size: 15px;">
+                                {{risultato?.wind_spd | number:'1.0-0'}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center col-md-6" style="margin-top: 20px;">
+                    <p class="city">{{risultato?.city_name}}</p>
+                    <hr class="line">
+                    <!-- <div class="row">
+                        <img [src]="
+                            risultato?.weather.description == 'Nuvoloso' && '/assets/cloud.png' 
+                        || risultato?.weather.description == 'Parzialmente nuvoloso' && '/assets/cloud.png'
+                        || risultato?.weather.description == 'Coperto' && '/assets/cloud.png' 
+                        || risultato?.weather.description == 'Pioggia forte' && '/assets/temporale.png'
+                        || risultato?.weather.description == 'Pioggia moderata' && '/assets/rain2.png'
+                        || risultato?.weather.description == 'Pioggia leggera' && '/assets/rain2.png'
+                        || risultato?.weather.description == 'Rovescio leggero' && '/assets/rain2.png'
+                        || risultato?.weather.description == 'Cielo sereno' && '/assets/sun.png'
+                         " style="width:40px; margin-bottom: 10px;">
+                    </div> -->
+                </div>
+            </div>
+            <div class="container">
+                <div class="row" style="width: 100%; height:90px;"></div>
+            </div>
+            <div class="container weeklyRow">
+                <div class="row" [hidden]="!show">
+                    <div class="col-md-2" *ngFor="let item of takedata?.data | slice:0:6">
+                        <p class="weekListTemp">
+                            {{item?.temp | number:'1.0-0'}}°
+                        </p>
+                        <img [src]="
+                        item.weather.description == 'Nuvoloso' && '/assets/cloud.png' 
+                        || item.weather.description == 'Parzialmente nuvoloso' && '/assets/cloud.png'
+                        || item.weather.description == 'Coperto' && '/assets/cloud.png' 
+                        || item.weather.description == 'Pioggia forte' && '/assets/temporale.png'
+                        || item.weather.description == 'Pioggia moderata' && '/assets/rain2.png'
+                        || item.weather.description == 'Pioggia leggera' && '/assets/rain2.png'
+                        || item.weather.description == 'Rovescio leggero' && '/assets/rain2.png'
+                        || item.weather.description == 'Cielo sereno' && '/assets/sun.png'
+                         " style="width:40px; margin-bottom: 10px;">
+                        <p>
+                            {{item?.datetime | date:'d/M/y'}}
+                        </p>
+                        <p class="weekListDescription">
+                            {{item?.weather.description}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <svg class="back__button" routerLink="" viewBox="4085 152 98.5 126" tabindex="0" style="height: 80px;">
+                <defs>
+                  <style>.a {
+                    fill: #2b244d;
+                  }
+            
+                  .b {
+                    fill: rgba(0, 0, 0, 0);
+                  }
+            
+                  .b, .c {
+                    stroke: #fff;
+                    stroke-width: 2px;
+                  }
+            
+                  .c {
+                    fill: none;
+                  }
+            
+                  .d {
+                    fill: #fff;
+                    font-size: 15px;
+                    font-family: SegoeUI, Segoe UI, sans-serif;
+                    letter-spacing: 0.4em;
+                  }</style>
+                </defs>
+                <g transform="translate(3980)">
+                  <circle class="a" cx="39" cy="39" r="39" transform="translate(105 152)"></circle>
+                  <line class="b" transform="translate(123.5 190.5)" x1="80"></line>
+                  <line class="b" transform="translate(123.5 164.5)" x2="26" y1="26"></line>
+                  <line class="c" transform="translate(123.5 190.5)" x1="26" y1="27"></line>
+                  <text class="d" transform="translate(117 274)">
+                    <tspan x="0" y="0">BACK</tspan>
+                  </text>
+                </g>
+              </svg>
+</div>

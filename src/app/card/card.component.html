@@ -1,0 +1,14 @@
+<div class="row">
+    <div *ngFor="let item of weathers; let id = index;">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title">{{item.data[0].city_name}}</h2>
+                <p style="font-size: 20px; font-weight: bold;">{{item.data[0].temp}} Gradi</p>
+                <span style="text-align: center; font-size: 2rem;">{{item.data[0].weather.description}}</span>
+                <p class="h4" style="color: red" (click)="openDetails(item, id)" [hidden]="clicked">Show Details</p>
+                <span>{{item.data[0].datetime}}</span>
+                <app-card-details *ngIf="selectedItem.length < -1"></app-card-details>
+            </div>
+        </div>
+    </div>
+</div>
