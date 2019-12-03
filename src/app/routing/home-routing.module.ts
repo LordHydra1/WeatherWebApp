@@ -5,9 +5,10 @@ import { CardDetailsComponent } from '../card-details/card-details.component';
 
 
 
+
 const homeRoutes: Routes = [
   { path: 'home',  component: HomeComponent },
-  { path: 'details/:', component: CardDetailsComponent }
+  { path: 'details/:', component: CardDetailsComponent },
 ];
 
 @NgModule({

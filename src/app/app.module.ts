@@ -14,6 +14,7 @@ import { CardComponent } from './card/card.component';
 import { CardDetailsComponent } from './card-details/card-details.component';
 import { HomeModule } from './routing/home-routing.module';  
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,6 @@ import { HomeModule } from './routing/home-routing.module';
     HomeModule,
     AppRoutingModule,
     HttpClientModule,
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

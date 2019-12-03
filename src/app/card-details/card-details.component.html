@@ -51,6 +51,7 @@
                         <img [src]="
                         item.weather.description == 'Nuvoloso' && '/assets/cloud.png' 
                         || item.weather.description == 'Parzialmente nuvoloso' && '/assets/cloud.png'
+                        || item.weather.description == 'Nuvole sparse' && '/assets/cloud.png'
                         || item.weather.description == 'Coperto' && '/assets/cloud.png' 
                         || item.weather.description == 'Pioggia forte' && '/assets/temporale.png'
                         || item.weather.description == 'Pioggia moderata' && '/assets/rain2.png'

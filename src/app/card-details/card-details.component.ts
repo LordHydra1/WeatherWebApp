@@ -34,11 +34,11 @@ export class CardDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.isFetching = false;
-    if(localStorage == this.risultato){
+    if (localStorage == this.risultato) {
       this.isFetching = false;
-      this.risultato 
+      this.risultato
       this.activated = true;
-    }else{
+    } else {
       this.activesub = this.weatherService.datoPassato.subscribe(
         res => {
           this.changeDetector.markForCheck();
